@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My first d3.js</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="mySVG"></div>
+    <script src="http://d3js.org/d3.v2.js"></script>
+    <script>
+      var svg = d3.select("#mySVG")
+        .append("svg")
+        .attr("width", 200)
+        .attr("height", 200)
+
+      svg.append("text")
+        .attr("x", 50)
+        .attr("y", 50)
+        .attr("class", "text")
+        .text("d3.js is awesome")
+    </script>
+  </body>
