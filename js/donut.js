@@ -39,7 +39,7 @@ define(['d3', 'elasticsearch'], function (d3, elasticsearch) {
         var touchdowns = resp.aggregations.touchdowns.buckets;
         // d3 donut chart
         var width = 600,
-            height = 300,
+            height = 400,
             radius = Math.min(width, height) / 2;
         var color = ['#ff7f0e', '#d62728', '#2ca02c', '#1f77b4'];
         var arc = d3.svg.arc()

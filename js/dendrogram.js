@@ -55,8 +55,8 @@ define(['d3', 'elasticsearch'], function (d3, elasticsearch) {
         // D3 code goes here.
         var root = createChildNodes(resp);
         // d3 dendrogram
-        var width = 600,
-            height = 2000;
+        var width = 400,
+            height = 1500;
         var color = ['#ff7f0e', '#d62728', '#2ca02c', '#1f77b4'];
         var cluster = d3.layout.cluster()
             .size([height, width - 200]);

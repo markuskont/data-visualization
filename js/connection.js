@@ -7,4 +7,5 @@ define(['elasticsearch'], function (elasticsearch) {
     		port: '9200'
 		}
     });
+    return client;
 });
