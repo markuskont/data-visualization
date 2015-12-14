@@ -15,3 +15,7 @@ git clone https://github.com/markuskont/data-visualization
 cd data-visualization
 vagrant up
 ```
+
+ - Javascript frontend - http://192.168.56.10:80.
+ - Elasticsearch backend - http://192.168.56.11:9200
+ - Elasticsearch web management - http://192.168.56.11:9200/_plugin/head
