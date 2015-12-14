@@ -1,3 +1,23 @@
-.text {
-  fill: blue;
+body {
+  font: 14px sans-serif;
+}
+.arc path {
+  stroke: #fff; 
+  stroke-width: 3px;
+}
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.node {
+  font: 10px sans-serif;
+}
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+.container {
+  text-align:center;
 }
