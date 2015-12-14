@@ -15,24 +15,24 @@ SCRIPT
 
 $elasticsearch = <<SCRIPT
 
-  if [ -z `apt-cache policy elasticsearch | grep (none)` ]; then
-    sudo wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
-    sudo echo 'deb http://packages.elasticsearch.org/elasticsearch/1.7/debian stable main' | tee /etc/apt/sources.list.d/elasticsearch.list
-    sudo apt-get update
-    sudo apt-get install -y openjdk-7-jre-headless elasticsearch < /dev/null
-    
-    sudo update-rc.d elasticsearch defaults
-    
-    sudo echo 'http.cors.allow-origin: "/.*/"' >> /etc/elasticsearch/elasticsearch.yml
-    sudo echo 'http.cors.enabled: true' >> /etc/elasticsearch/elasticsearch.yml
-    
-    sudo echo 'ES_HEAP_SIZE=512m' >> /etc/default/elasticsearch
-    
-    sudo service elasticsearch stop
-    sudo service elasticsearch start
-    
-    sudo /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
-  fi
+if [ -z `apt-cache policy elasticsearch | grep (none)` ]; then
+  sudo wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
+  sudo echo 'deb http://packages.elasticsearch.org/elasticsearch/1.7/debian stable main' | tee /etc/apt/sources.list.d/elasticsearch.list
+  sudo apt-get update
+  sudo apt-get install -y openjdk-7-jre-headless elasticsearch < /dev/null
+  
+  sudo update-rc.d elasticsearch defaults
+  
+  sudo echo 'http.cors.allow-origin: "/.*/"' >> /etc/elasticsearch/elasticsearch.yml
+  sudo echo 'http.cors.enabled: true' >> /etc/elasticsearch/elasticsearch.yml
+  
+  sudo echo 'ES_HEAP_SIZE=512m' >> /etc/default/elasticsearch
+  
+  sudo service elasticsearch stop
+  sudo service elasticsearch start
+  
+  sudo /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
+fi
 SCRIPT
 
 $es_load_data = <<SCRIPT
