@@ -1,4 +1,4 @@
-# d3-js-ela-something
+# data-visualization
 
 This repository is all about mucking around with d3.js.
 
