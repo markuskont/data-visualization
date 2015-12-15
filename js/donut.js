@@ -1,13 +1,14 @@
 define(['d3', 'elasticsearch'], function (d3, elasticsearch) {
     "use strict";
-    var client = new elasticsearch.Client({
-    	host: {
-    		protocol: 'http',
-    		host: '192.168.56.11',
-    		port: '9200'
-		}
-    });
+    var serverOptions = {
+        host: {
+            protocol: 'http',
+            host: '192.168.56.11',
+            port: '9200'
+        }
+    };
     var search = 'TOUCHDOWN';
+    var client = new elasticsearch.Client(serverOptions);
     // donut
     client.search({
         index: 'nfl',

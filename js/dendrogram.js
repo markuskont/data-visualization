@@ -1,12 +1,14 @@
 define(['d3', 'elasticsearch'], function (d3, elasticsearch) {
     "use strict";
-    var client = new elasticsearch.Client({
-    	host: {
-    		protocol: 'http',
-    		host: '192.168.56.11',
-    		port: '9200'
-		}
-    });
+    var serverOptions = {
+        host: {
+            protocol: 'http',
+            host: '192.168.56.11',
+            port: '9200'
+        }
+    };
+    var search = 'TOUCHDOWN';
+    var client = new elasticsearch.Client(serverOptions);
     // dendrogram
     client.search({
         index: 'nfl',
@@ -14,7 +16,7 @@ define(['d3', 'elasticsearch'], function (d3, elasticsearch) {
         body: {
             query: {
                 bool: {
-                    must: { match: { "description": "TOUCHDOWN"}},
+                    must: { match: { "description": search}},
                     must_not: [
                         { match: { "description": "intercepted"}},
                         { match: { "description": "incomplete"}},
@@ -55,7 +57,7 @@ define(['d3', 'elasticsearch'], function (d3, elasticsearch) {
         // D3 code goes here.
         var root = createChildNodes(resp);
         // d3 dendrogram
-        var width = 400,
+        var width = 800,
             height = 1500;
         var color = ['#ff7f0e', '#d62728', '#2ca02c', '#1f77b4'];
         var cluster = d3.layout.cluster()
