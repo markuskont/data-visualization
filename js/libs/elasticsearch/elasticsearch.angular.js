@@ -24329,7 +24329,7 @@ var castType = {
       }
       /* falls through */
     default:
-      throw new TypeError('Invalid ' + name + ': expected be a comma seperated list, array, number or string.');
+      throw new TypeError('Invalid ' + name + ': expected be a comma separated list, array, number or string.');
     }
   },
   'boolean': function (param, val) {
